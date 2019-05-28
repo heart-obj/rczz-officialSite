@@ -236,17 +236,17 @@ export default {
 .col-box1 {
   position: absolute;
   left: 27vw;
-  top: 7vw;
+  top: 5vw;
 }
 .col-box2 {
   position: absolute;
-  left: 44vw;
-  top: 2vw;
+  left: 42vw;
+  top: 1vw;
 }
 .col-box3 {
   position: absolute;
-  right: 25vw;
-  top: 5vw;
+  right: 30vw;
+  top: 4vw;
 }
 .col-box4 {
   position: absolute;
@@ -255,27 +255,27 @@ export default {
 }
 .col-box5 {
   position: absolute;
-  right: 17vw;
-  bottom: 17vw;
+  right: 16vw;
+  bottom: 14vw;
 }
 .col-box6 {
   position: absolute;
-  right: 25vw;
-  bottom: 8vw;
+  right: 30vw;
+  bottom: 5vw;
 }
 .col-box7 {
   position: absolute;
-  left: 40vw;
+  left: 42vw;
   bottom: 2vw;
 }
 .col-box8 {
   position: absolute;
-  left: 23vw;
-  bottom: 7vw;
+  left: 26vw;
+  bottom: 3vw;
 }
 .col-box9 {
   position: absolute;
   left: 17vw;
-  bottom: 17vw;
+  bottom: 14vw;
 }
 </style>

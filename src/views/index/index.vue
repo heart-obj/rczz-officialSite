@@ -21,6 +21,8 @@
     <div class="content-box">
       <Honor></Honor>
       <Business></Business>
+      <Reason></Reason>
+      <GoodCase></GoodCase>
     </div>
     <footer></footer>
   </div>
@@ -29,12 +31,16 @@
 import HeaderBox from '@/views/header'
 import Honor from '@/components/honorlist'
 import Business from '@/components/business'
+import Reason from '@/components/reason'
+import GoodCase from '@/components/goodCase'
 export default {
   name: 'Index',
   components: {
     HeaderBox,
     Honor,
-    Business
+    Business,
+    Reason,
+    GoodCase
   },
   data () {
     return {
