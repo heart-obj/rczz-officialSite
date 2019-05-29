@@ -20,6 +20,9 @@
           <span class="col-text">{{item.text}}</span>
         </span>
       </div>
+      <div class="mobilebusiness-box">
+
+      </div>
     </div>
   </div>
 </template>
@@ -277,5 +280,28 @@ export default {
   position: absolute;
   left: 17vw;
   bottom: 14vw;
+}
+.mobilebusiness-box {
+  width: 100vw;
+  height: 169vw;
+  background: url('./img/businessbg.png') no-repeat center;
+  background-size: 100% 100%;
+  display: none;
+}
+@media (min-width: 1200px) {
+  .mobilebusiness-box {
+    display: none;
+  }
+  .business-box {
+    display: inline-block;
+  }
+}
+@media (max-width: 1200px) {
+  .mobilebusiness-box {
+    display: inline-block;
+  }
+  .business-box {
+    display: none;
+  }
 }
 </style>

@@ -22,7 +22,7 @@
 </template>
 <script>
 export default {
-  name: 'Honor',
+  name: 'Honor', // 荣誉资质
   data () {
     return {
       honorlist: [

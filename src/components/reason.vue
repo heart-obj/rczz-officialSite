@@ -80,6 +80,32 @@
           </div>
         </div>
       </div>
+      <div class="mobilerow-box">
+        <div class="col-box" v-for="(item, index) in mobileList" :key="index">
+          <div class="col-row" v-if="index % 2 === 0">
+            <div class="col-div col-div1">
+              <span class="triangle-right"></span>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 16px;color: #999999">{{ item.title }}</div>
+              <div style="width: 100%;height: 50%;" :style="{background: 'url('+ item.bgimgUrl +') no-repeat center','background-size': '100% 100%'}"></div>
+            </div>
+            <div class="col-div">
+              <div class="title-div">“</div>
+              <span class="text-col">{{ item.text }}</span>
+            </div>
+          </div>
+          <div class="col-row" v-else>
+            <div class="col-div">
+              <div class="title-div">“</div>
+              <span class="text-col">{{ item.text }}</span>
+            </div>
+            <div class="col-div col-div1">
+              <span class="triangle-left"></span>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 16px;color: #999999">{{ item.title }}</div>
+              <div style="width: 100%;height: 50%;" :style="{background: 'url('+ item.bgimgUrl +') no-repeat center','background-size': '100% 100%'}"></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="icons">
         <div class="icon"></div>
         <div class="icon"></div>
@@ -124,9 +150,9 @@ export default {
         './static/img/pic5.png'
       ],
       swiperOption: {
-        delay: 1000,
+        // delay: 1000,
         autoplay: {
-          disableOnInteraction: false
+          // disableOnInteraction: false
         },
         speed: 1000,
         loop: true,
@@ -152,6 +178,33 @@ export default {
           label: '公司明确要求不仅不招实习生、应届生，而且必须要有至少3年相关领域经验的求职者，才有面试资格。在通过面试并入职一周内为观察期，合格者才会签订劳动合同。',
           headerText: '强大的技术实力',
           bgimgUrl: './static/img/swiper3.png'
+        }
+      ],
+      mobileList: [
+        {
+          title: '项目需求模糊缺乏专业的人梳理',
+          bgimgUrl: './static/img/pic1.png',
+          text: '我们有专业的产品经理 为您梳理需求'
+        },
+        {
+          title: '项目自建技术团队成本太高',
+          bgimgUrl: './static/img/pic2.png',
+          text: '我们优秀的技术团队 物美价优'
+        },
+        {
+          title: '服务商报价五花八门价格悬殊太大',
+          bgimgUrl: './static/img/pic3.png',
+          text: '我们的报价清单罗列 合情合理'
+        },
+        {
+          title: '不懂技术管理产品难运营',
+          bgimgUrl: './static/img/pic4.png',
+          text: '我们的技术质量过关 让您运营无忧'
+        },
+        {
+          title: '工期时间太赶项目效果差',
+          bgimgUrl: './static/img/pic5.png',
+          text: '我们的开发速度很快 落地效果好'
         }
       ]
     }
@@ -407,7 +460,7 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  margin:  20px auto;
+  margin:  10px auto;
 }
 .swiper-box>.swiper-pagination>>>.swiper-pagination-bullet {
   display: inline-block;
@@ -423,5 +476,104 @@ export default {
   height: 8px;
   border-radius: 8px;
   background: rgba(16, 159, 253, 1)
+}
+@media (min-width: 768px) {
+  .row-box {
+    width: 100%;
+    display: inline-block;
+  }
+  .mobilerow-box {
+    width: 100%;
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .row-box {
+    width: 100%;
+    display: none;
+  }
+  .mobilerow-box {
+    width: 100%;
+    display: inline-block;
+  }
+  .mobilerow-box {
+    margin: 4vw 0;
+    display: inline-block;
+    text-align: center;
+    font-size: 0;
+    -webkit-text-size-adjust:none;
+  }
+  .mobilerow-box>div {
+    display: inline-block;
+  }
+  .mobilerow-box .col-box {
+    width: 100%;
+    height: 35vw;
+  }
+  .mobilerow-box .col-box2 {
+    width: 100%;
+    height: 35vw;
+  }
+  .mobilerow-box .col-row {
+    height: 100%;
+  }
+  .triangle-right {
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 15px 0 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ebebeb;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -14px;
+    margin: auto;
+    z-index: 11
+  }
+  .triangle-left {
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 15px 15px 15px 0;
+    border-style: solid;
+    border-color: transparent #ebebeb transparent transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -14px;
+    margin: auto;
+    z-index: 11
+  }
+  .col-div .title-div {
+    color: #333333;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 60px;
+    padding-top: 20px;
+  }
+  .col-div .text-col {
+    display: inline-block;
+    box-sizing: border-box;
+    color: #333333;
+    font-weight: bold;
+    font-size: 3.2vw;
+    padding: 0 20px;
+  }
+  .swiper-box {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+  }
+  .swiper-col {
+    width: 80%;
+    height: auto;
+  }
+  .swiper-col .swiper-text {
+    display: inline-block;
+    font-size: 1.25vw;
+    color: #ffffff;
+    padding: 10px;
+  }
 }
 </style>

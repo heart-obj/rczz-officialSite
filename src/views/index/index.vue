@@ -1,30 +1,34 @@
 <template>
-  <div class="container">
-    <header>
-      <div class="nav-bar-box">
-        <div class="logo-box">
-          <div class="logo">极越科技</div>
+  <div class="app-container">
+    <div>
+      <header>
+        <div class="nav-bar-box">
+          <div class="logo-box">
+            <div class="logo">极越科技</div>
+          </div>
+          <div class="tab-box" :class="showTab ? 'showTab' : ''">
+            <HeaderBox @tabClick="tabClick"></HeaderBox>
+          </div>
+          <!-- <div class="navbar-toggle" @click="showTabFunc">
+            <span class="glyphicon glyphicon-list"></span>
+            <span class="glyphicon glyphicon-list"></span>
+            <span class="glyphicon glyphicon-list"></span>
+          </div> -->
         </div>
-        <div class="tab-box" :class="showTab ? 'showTab' : ''">
-          <HeaderBox></HeaderBox>
-        </div>
-        <div class="navbar-toggle" @click="showTabFunc">
-          <span class="glyphicon glyphicon-list"></span>
-          <span class="glyphicon glyphicon-list"></span>
-          <span class="glyphicon glyphicon-list"></span>
-        </div>
+      </header>
+      <div class="plan-box">
+        <div class="plan-bg"></div>
       </div>
-    </header>
-    <div class="plan-box">
-      <div class="plan-bg"></div>
+      <div class="content-box">
+        <Honor ref="Honor"></Honor>
+        <Business ref="Business"></Business>
+        <Reason ref="Reason"></Reason>
+        <GoodCase ref="GoodCase"></GoodCase>
+        <Aboutus ref="Aboutus"></Aboutus>
+        <CooperativePartner ref="CooperativePartner"></CooperativePartner>
+      </div>
+      <footer></footer>
     </div>
-    <div class="content-box">
-      <Honor></Honor>
-      <Business></Business>
-      <Reason></Reason>
-      <GoodCase></GoodCase>
-    </div>
-    <footer></footer>
   </div>
 </template>
 <script>
@@ -33,6 +37,8 @@ import Honor from '@/components/honorlist'
 import Business from '@/components/business'
 import Reason from '@/components/reason'
 import GoodCase from '@/components/goodCase'
+import Aboutus from '@/components/aboutus'
+import CooperativePartner from '@/components/cooperativePartner'
 export default {
   name: 'Index',
   components: {
@@ -40,7 +46,9 @@ export default {
     Honor,
     Business,
     Reason,
-    GoodCase
+    GoodCase,
+    Aboutus,
+    CooperativePartner
   },
   data () {
     return {
@@ -48,17 +56,28 @@ export default {
       showTab: false
     }
   },
+  mounted () {
+  },
   methods: {
     showTabFunc () {
       this.showTab = !this.showTab
+    },
+    tabClick (ref) {
+      if (ref === 'uptop') {
+        document.querySelector('.app-container').scrollTop = 0
+      } else {
+        let eloffsetTop = this.$refs[ref].$el.offsetTop
+        document.querySelector('.app-container').scrollTop = eloffsetTop
+      }
     }
   }
 }
 </script>
 <style scoped>
-.container {
+.app-container {
   width: 100% !important;
-  max-width: 100% !important;
+  height: 100%;
+  overflow-y: auto;
   padding: 0 !important;
   background: #ffffff;
   position: relative;
@@ -74,7 +93,8 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(22, 21, 21, 0.6);
+  box-shadow: 0 0 10px rgba(22, 21, 21, 0.6);
   z-index: 99;
 }
 .logo-box {

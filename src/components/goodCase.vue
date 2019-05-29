@@ -24,13 +24,13 @@
       </div>
       <div class="mobilecase-box">
         <div v-for="(item, index) in caselist" :key="index" style="margin-top: 100px;">
-          <div :class="index % 2 === 0 ? 'mobilecase-col' : 'mobilecase-col2'" :style="{background: 'url('+ item.bgimg +')no-repeat'}">
+          <div :class="index % 2 === 0 ? 'mobilecase-col' : 'mobilecase-col2'">
             <div class="mobilecase-content">
               <div class="mobilecase-title">{{item.title}}</div>
               <span class="mobilecase-text" v-html="item.label" :style="{'text-align': index % 2 === 0 ? 'left' : 'right'}"></span>
               <div class="mobilecase-btn" :style="{background: item.btnBgColor,float: index % 2 === 0 ? 'left' : 'right' }">查看更多</div>
             </div>
-            <div class="mobilecase-icon" :style="{background: 'url('+ item.bgimg +')no-repeat'}"></div>
+            <div class="mobilecase-icon" :style="{background: 'url('+ item.mobilebgimg +')no-repeat'}"></div>
           </div>
         </div>
       </div>
@@ -45,32 +45,37 @@ export default {
       caselist: [
         {
           title: 'APP-西藏布达拉宫智慧导游系统',
-          label: '是一款导游平台移动端应用，您可以使用APP<br/>对各个景点进行导航和深入了解，还能申请制作导游包方便规划其他用户的旅行路线<br/>平台上还可以和各地驴友聊天发帖，建立一个小的社交驴友圈同时平台还会推荐景点好吃、好玩、好购物的地方让驴友们了解当地的民俗风情。',
+          label: '是一款导游平台移动端应用，您可以使用APP对各个景点进行导航和深入了解，还能申请制作导游包方便规划其他用户的旅行路线平台上还可以和各地驴友聊天发帖，建立一个小的社交驴友圈同时平台还会推荐景点好吃、好玩、好购物的地方让驴友们了解当地的民俗风情。',
           bgimg: './static/img/caseBg1.png',
+          mobilebgimg: './static/img/mobilecaseBg1.png',
           btnBgColor: '#36d49e'
         },
         {
           title: 'Web系统-南昌交警总局交通系统',
-          label: '交通系统应用在交通行业，主要使用群体是交警，满足交警的交通信号控制、交通违章处置、稽查布控、智能研判等业务需求，是交通管理部门重要的义务应用平台。<br/>界面设计充分考虑了交互设计、界面设计以及用户体验，<br/>平台具备友好性和易用性，采用科技风格+公安交通元素。',
+          label: '交通系统应用在交通行业，主要使用群体是交警，满足交警的交通信号控制、交通违章处置、稽查布控、智能研判等业务需求，是交通管理部门重要的义务应用平台。界面设计充分考虑了交互设计、界面设计以及用户体验，平台具备友好性和易用性，采用科技风格+公安交通元素。',
           bgimg: './static/img/caseBg2.png',
+          mobilebgimg: './static/img/mobilecaseBg2.png',
           btnBgColor: '#2e4ca5'
         },
         {
           title: 'APP-新华网新闻客户端',
-          label: '新华网新闻客户端是以手机为传播平台，为用户提供新闻资讯<br/>段务的媒介应用程序。具有操作简单、更新快速、<br/>内容丰富、设计人性化、注重交互性的特点，<br/>为用户获取新闻资讯提供了便捷条件。',
+          label: '新华网新闻客户端是以手机为传播平台，为用户提供新闻资讯段务的媒介应用程序。具有操作简单、更新快速、内容丰富、设计人性化、注重交互性的特点，为用户获取新闻资讯提供了便捷条件。',
           bgimg: './static/img/caseBg3.png',
+          mobilebgimg: './static/img/mobilecaseBg3.png',
           btnBgColor: '#1489df'
         },
         {
           title: '后台系统-美国便利店超市系统',
-          label: '收银是便利店、超市在系统操作时，最频繁的工作，可谓十分重要。<br/>常用功能提供快捷键、无码/称重商品提供快速选择栏、<br/>收银时可直接修改商品价格等等，都是千帆掌柜为便利店、<br/>超市收银提供的悉心支持。<br/><br/><div style="text-align:right">Lorem Ipsum</div>',
+          label: '收银是便利店、超市在系统操作时，最频繁的工作，可谓十分重要。常用功能提供快捷键、无码/称重商品提供快速选择栏、收银时可直接修改商品价格等等，都是千帆掌柜为便利店、超市收银提供的悉心支持。<br/><br/><div style="text-align:right">Lorem Ipsum</div>',
           bgimg: './static/img/caseBg4.png',
+          mobilebgimg: './static/img/mobilecaseBg4.png',
           btnBgColor: '#72d367'
         },
         {
           title: 'APP-农信贷银行理财系统',
-          label: '农业产业很容易受到自然灾害、气候变化等因素影响，加上信用体系建设不足，<br/>农业金融已经成为国内金融体系最为薄弱的一个环<br/>节。农业信贷APP开发充当农业产业链整合角色，<br/>通过信托产品把农民和社会投资者连接起来，解决种植户扩大土地经营的融资需求<br/>',
+          label: '农业产业很容易受到自然灾害、气候变化等因素影响，加上信用体系建设不足，农业金融已经成为国内金融体系最为薄弱的一个环<br/>节。农业信贷APP开发充当农业产业链整合角色，<br/>通过信托产品把农民和社会投资者连接起来，解决种植户扩大土地经营的融资需求<br/>',
           bgimg: './static/img/caseBg5.png',
+          mobilebgimg: './static/img/mobilecaseBg5.png',
           btnBgColor: '#1489df'
         }
       ]
@@ -141,6 +146,7 @@ export default {
   background-position: right !important;
   background-size: 62% !important;
   position: relative;
+  margin-bottom: 20px;
 }
 .case-col .case-content {
   position: absolute;
@@ -154,6 +160,7 @@ export default {
   background-position: left !important;
   background-size: 62% !important;
   position: relative;
+  margin-bottom: 20px;
 }
 .case-col2 .case-content {
   position: absolute;
@@ -204,8 +211,7 @@ export default {
   .mobilecase-box .mobilecase-col {
     width: 100%;
     background-position: right bottom!important;
-    background-size: 100% 53% !important;
-    padding-bottom: 30.1vw;
+    background-size: 100% 80% !important;
   }
   .mobilecase-col .mobilecase-content {
     width: 100%;
@@ -213,8 +219,7 @@ export default {
   .mobilecase-box .mobilecase-col2 {
     width: 100%;
     background-position: left bottom!important;
-    background-size: 100% 53% !important;
-    padding-bottom: 30.1vw;
+    background-size: 100% 80% !important;
   }
   .mobilecase-col2 .mobilecase-content {
     width: 100%;
@@ -240,6 +245,18 @@ export default {
     color: #ffffff;
     border-radius: 5px;
     margin: 10px;
+  }
+  .mobilecase-col .mobilecase-icon {
+    width: 100%;
+    height: 64vw;
+    background-position: right bottom!important;
+    background-size: 100% 100% !important;
+  }
+  .mobilecase-col2 .mobilecase-icon {
+    width: 100%;
+    height: 64vw;
+    background-position: left bottom!important;
+    background-size: 100% 100% !important;
   }
 }
 </style>

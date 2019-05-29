@@ -12,36 +12,37 @@ export default {
     return {
       navlis: [
         {
-          prop: 1,
+          prop: 'uptop',
           label: '网站首页'
         },
         {
-          prop: 2,
+          prop: 'Honor',
           label: '荣誉资质'
         },
         {
-          prop: 3,
+          prop: 'Business',
           label: '公司业务'
         },
         {
-          prop: 4,
+          prop: 'GoodCase',
           label: '精彩案例'
         },
         {
-          prop: 5,
+          prop: 'Aboutus',
           label: '关于我们'
         },
         {
-          prop: 6,
+          prop: 'CooperativePartner',
           label: '合作伙伴'
         }
       ],
-      selectedlLi: 1
+      selectedlLi: 'uptop'
     }
   },
   methods: {
     handleClickFunc (key) {
       this.selectedlLi = key
+      this.$emit('tabClick', key)
     }
   }
 }
