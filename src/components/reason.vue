@@ -85,7 +85,7 @@
           <div class="col-row" v-if="index % 2 === 0">
             <div class="col-div col-div1">
               <span class="triangle-right"></span>
-              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 16px;color: #999999">{{ item.title }}</div>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 2.2vw;color: #999999">{{ item.title }}</div>
               <div style="width: 100%;height: 50%;" :style="{background: 'url('+ item.bgimgUrl +') no-repeat center','background-size': '100% 100%'}"></div>
             </div>
             <div class="col-div">
@@ -100,7 +100,7 @@
             </div>
             <div class="col-div col-div1">
               <span class="triangle-left"></span>
-              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 16px;color: #999999">{{ item.title }}</div>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 2.2vw;color: #999999">{{ item.title }}</div>
               <div style="width: 100%;height: 50%;" :style="{background: 'url('+ item.bgimgUrl +') no-repeat center','background-size': '100% 100%'}"></div>
             </div>
           </div>
@@ -150,9 +150,9 @@ export default {
         './static/img/pic5.png'
       ],
       swiperOption: {
-        // delay: 1000,
+        delay: 1000,
         autoplay: {
-          // disableOnInteraction: false
+          disableOnInteraction: false
         },
         speed: 1000,
         loop: true,
@@ -548,8 +548,8 @@ export default {
   .col-div .title-div {
     color: #333333;
     font-weight: bold;
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 8vw;
+    line-height: 8vw;
     padding-top: 20px;
   }
   .col-div .text-col {
