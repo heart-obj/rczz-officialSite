@@ -12,6 +12,9 @@
         我们服务过的客户遍布中国内地、港台、新加坡、日本、澳大利亚、柬埔寨、美国和英国等全球各地，在帮助客户提供方案解决、<br/>
         美工设计、软件开发、产品运维、服务代办、技术支持等方面具有明显优势。
       </div>
+      <div class="content-box">
+
+      </div>
     </div>
   </div>
 </template>
@@ -75,5 +78,22 @@ export default {
   padding: 1.56vw 15.6vw 0 15.6vw;
   color: #999999;
   font-size: 0.8vw;
+}
+.content-box {
+  display: inline-block;
+  width: 72vw;
+  height: 33.2vw;
+  background: url('./img/cooperativebg.png') no-repeat center;
+  background-size: 100% 100%;
+  margin: 20px;
+}
+@media screen and (max-width: 750px) {
+  .content-box {
+    display: inline-block;
+    width: 90vw;
+    height: 75vw;
+    background: url('./img/cooperativebg2.png') no-repeat center;
+    background-size: 100% 100%;
+  }
 }
 </style>
