@@ -8,6 +8,11 @@
 <script>
 export default {
   name: 'Header', // 头部组件
+  props: {
+    activeNav: {
+      default: 'uptop'
+    }
+  },
   data () {
     return {
       navlis: [
@@ -38,6 +43,16 @@ export default {
       ],
       selectedlLi: 'uptop'
     }
+  },
+  watch: {
+    activeNav: {
+      handler (newVal) {
+        this.selectedlLi = this.activeNav
+      }
+    }
+  },
+  created () {
+    this.selectedlLi = this.activeNav
   },
   methods: {
     handleClickFunc (key) {

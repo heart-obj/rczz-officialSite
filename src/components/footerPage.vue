@@ -26,7 +26,46 @@
         </div>
       </div>
     </div>
-    <div class="mobile-footer"></div>
+    <div class="mobile-footer">
+      <div class="mobilerow1-col2 row1-col2-logo">
+        <div class="logo-text">极越科技</div>
+      </div>
+      <div class="mobilerow-col">
+        <span class="col-name">联系人：</span><span class="col-content">尹先生</span>
+      </div>
+      <div class="mobilerow-col">
+        <span class="col-name">联系地址：</span><span class="col-content">成都市高新西区红旗大道北段146号</span>
+      </div>
+      <div class="mobilerow-col">
+        <span class="col-name">友情链接：</span>
+        <div class="col-content">
+          <span>小程序开发</span>&nbsp;|&nbsp;
+          <span>APP开发</span>&nbsp;|&nbsp;
+          <span>软件开发</span>&nbsp;|&nbsp;
+          <span>智诚开发网</span>&nbsp;|&nbsp;
+          <span>开源中国</span>
+        </div>
+      </div>
+      <div class="mobilerow-col2">
+        <div class="row1-col">
+          <div class="col-text">关于官网</div>
+          <div class="col-text1">关于我们</div>
+          <div class="col-text1">服务范围</div>
+          <div class="col-text1">经典案例</div>
+          <div class="col-text1">合作伙伴</div>
+        </div>
+        <div class="row1-col">
+          <div class="col-text">联系我们</div>
+          <div class="col-text1 qq_icon">1808569213</div>
+          <div class="col-text1 email_icon">1808569213@qq.com</div>
+          <div class="col-text1 wx_icon">18428088011</div>
+        </div>
+        <div class="row1-col">
+          <div>报价咨询热线 <span style="font-size: 12px;">（8:00-22:00）</span></div>
+          <div class="col-text1 phone_icon">18428088011</div>
+        </div>
+      </div>
+    </div>
     <div class="bootom-footer">Copyright © 2008 - 2014 NB科技有限公司 All Right Reserved.</div>
   </div>
 </template>
@@ -97,7 +136,7 @@ export default {
   text-align: center;
   position: relative;
 }
-.logo-text {
+.pc-footer .logo-text {
   font-size: 30px;
   font-weight: 500;
   position: absolute;
@@ -135,5 +174,57 @@ export default {
   height: 73px;
   background: url(./img/icon_phone.png) no-repeat center;
 }
+.mobile-footer {
+  display: none;
+  padding-bottom: 30px;
+}
+.mobile-footer .mobilerow-col {
+  width: 100%;
+  padding: 4px 10px;
+  text-align: left;
+}
+.mobilerow-col div {
+  display: inline-block;
+}
+.mobilerow-col .col-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+.mobilerow-col .col-content {
+  font-size: 14px;
+}
+.mobilerow-col2 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.mobilerow-col2 .row1-col {
+  flex-grow: 1;
+  min-width: 150px;
+}
 
+.mobilerow-col2 .phone_icon {
+  display: inline-block;
+}
+@media screen and (max-width: 860px) {
+  .pc-footer {
+    display: none;
+  }
+  .mobile-footer {
+    display: inline-block;
+    width: 100%;
+  }
+  .row1-col2-logo {
+    width: 100%;
+    height: 100px;
+  }
+  .logo-text {
+    font-size: 30px;
+    font-weight: 500;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}
 </style>

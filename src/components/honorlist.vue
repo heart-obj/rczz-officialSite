@@ -12,7 +12,7 @@
         极越科技的早期核心团队成立至今已经有九年多了，从2010年成立创业团队，到升级为工作室，再到注册成立公司，我们一步一步的发展见证了客户对我们服务的满意，反应了市场对我们实力的认可。并获得了诸多的荣誉！
       </div>
       <div class="row justify-content-center" style="padding:8vw 0">
-        <div style="width:14.1vw;display:inline-block;margin: 0 1.5vw;" v-for="(item, i) in honorlist" :key="i">
+        <div style="display:inline-block;margin: 0 1.5vw;" v-for="(item, i) in honorlist" :key="i" class="justify-col">
           <div class="img-icon" :style="{background: 'url('+ item.imgurl +') no-repeat center', 'background-size': '100% 100%'}"></div>
           <span style="color:#050000;font-size:14px;font-weight:bold;margin-top:0.15vw;">{{item.label}}</span>
         </div>
@@ -110,5 +110,17 @@ export default {
 .box1 .img-icon {
   width: 14.1vw;
   height: 9.3vw;
+}
+.justify-col {
+  width: 14.1vw;
+}
+@media screen and (max-width: 1200px) {
+  .justify-col {
+    width: 30%;
+  }
+  .box1 .img-icon {
+    width: 100%;
+    height: 20vw;
+  }
 }
 </style>

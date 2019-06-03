@@ -1,13 +1,13 @@
 <template>
   <div class="app-container" @scroll="scroll">
     <div>
-      <header>
+      <header ref="uptop">
         <div class="nav-bar-box" :class="offsetTop ? 'offsetTop' : ''">
           <div class="logo-box">
             <div class="logo">极越科技</div>
           </div>
           <div class="tab-box" :class="showTab ? 'showTab' : ''">
-            <HeaderBox @tabClick="tabClick"></HeaderBox>
+            <HeaderBox @tabClick="tabClick" :activeNav="activeNav"></HeaderBox>
           </div>
           <!-- <div class="navbar-toggle" @click="showTabFunc">
             <span class="glyphicon glyphicon-list"></span>
@@ -54,6 +54,20 @@
         </div>
       </footer>
       <FooterPage></FooterPage>
+    </div>
+    <div class="mobile-footer-tab row">
+      <div class="col-2" v-for="(item, i) in navlis" :key="i">
+        <div :class="item.prop === activeNav ? 'activeNav' : ''" @click="tabClick(item.prop)">{{ item.label }}</div>
+      </div>
+    </div>
+    <div class="right-tip" v-show="showRight">
+      <div class="right-col wxRight-col">
+        <div class="wxRight-icon"></div>
+      </div>
+      <div class="right-col phoneRight-col">
+        <div class="phoneRight-icon">18428088011</div>
+      </div>
+      <div class="right-col returnRight-col" @click="tabClick('uptop')">返回顶部</div>
     </div>
     <!-- 移动端快速联系弹窗 -->
     <div class="model-tip" v-show="showModelTip && ifMobile">
@@ -102,14 +116,43 @@ export default {
       ifMobile: false,
       showModelTip: false,
       screenWidth: '',
-      screenHeight: ''
+      screenHeight: '',
+      navlis: [
+        {
+          prop: 'uptop',
+          label: '首页'
+        },
+        {
+          prop: 'Honor',
+          label: '荣誉资质'
+        },
+        {
+          prop: 'Business',
+          label: '公司业务'
+        },
+        {
+          prop: 'GoodCase',
+          label: '精彩案例'
+        },
+        {
+          prop: 'Aboutus',
+          label: '关于我们'
+        },
+        {
+          prop: 'CooperativePartner',
+          label: '合作伙伴'
+        }
+      ],
+      showRight: false,
+      scrollTop: 0,
+      activeNav: 'uptop'
     }
   },
   watch: {
     screenWidth: {
       handler (newVal) {
         this.screenWidth = newVal
-        if (newVal < 750) {
+        if (newVal < 1200) {
           this.ifMobile = true
         } else {
           this.ifMobile = false
@@ -131,6 +174,7 @@ export default {
         this.screenHeight = document.body.clientHeight
       })()
     }
+    document.querySelector('.app-container').addEventListener('scroll', this.windowScroll)
   },
   methods: {
     showTabFunc () {
@@ -161,6 +205,20 @@ export default {
       } else {
         this.offsetTop = false
       }
+    },
+    windowScroll () {
+      this.scrollTop = document.querySelector('.app-container').scrollTop
+      this.navlis.map(item => {
+        if (item.prop !== 'uptop') {
+          if (this.scrollTop >= (this.$refs[item.prop].$el.offsetTop - 100)) {
+            this.showRight = true
+            this.activeNav = item.prop
+          }
+        } else if (item.prop === 'uptop') {
+          this.showRight = false
+          this.activeNav = 'uptop'
+        }
+      })
     }
   }
 }
@@ -280,13 +338,13 @@ footer {
 }
 footer .footerRow1 {
   width: 100%;
-  height: 160px;
+  height: 100px;
   margin: 0;
   background: #499aff;
 }
 .footerRow1 .col1 {
   font-size: 2vw;
-  line-height: 160px;
+  line-height: 100px;
   font-weight: bold;
 }
 .footerRow1 .col2 {
@@ -326,7 +384,7 @@ footer .footerRow1 {
   position: absolute;
   left: 50%;
   right: 0;
-  bottom: 130px;
+  bottom: 100px;
   margin-left: -9.85vw;
   background: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
@@ -482,6 +540,132 @@ footer .footerRow1 {
   background: url('./img/icon_Wechat.png')no-repeat center;
   background-size: 100% 100%;
 }
+/* 移动端样式 */
+.mobile-footer-tab {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  z-index: 111;
+  display: none;
+  justify-content:space-between;
+  flex-wrap: nowrap;
+  margin: 0;
+}
+.mobile-footer-tab div {
+  display: inline-block;
+  font-size: 0.16vw;
+  padding: 0;
+  line-height: 50px;
+}
+.mobile-footer-tab>div {
+  position: relative;
+}
+.mobile-footer-tab .activeNav {
+  width: 100%;
+  height: 55px;
+  line-height: 60px;
+  background: #109ffd;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.right-tip {
+  width: 50px;
+  background: #ffffff;
+  position: fixed;
+  right: 10px;
+  bottom: 30%;
+  z-index: 999;
+  display: flex;
+  flex-direction:column;
+}
+.right-tip .right-col {
+  width: 100%;
+  height: 55px;
+  cursor: pointer;
+  position: relative;
+}
+.wxRight-col {
+  background: #499aff url('./img/wechat.png') no-repeat center;
+  background-size: 50% 40%;
+}
+.wxRight-col:hover .wxRight-icon {
+  display: block;
+}
+.wxRight-col .wxRight-icon {
+  display: none;
+  width: 100px;
+  height: 100px;
+  background: url('./img/icon_Wechat.png') no-repeat center;
+  background-size: 100% 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+  position: absolute;
+  left: -110px;
+  top: 50%;
+  margin-top: -50px;
+}
+.wxRight-col .wxRight-icon::after {
+  display: block;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-width: 10px 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ffffff;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  margin-top: -5px;
+  z-index: 11;
+}
+.phoneRight-col {
+  background: #499aff url('./img/phone.png') no-repeat center;
+  background-size: 50% 48%;
+  margin: 1px 0;
+}
+.phoneRight-col:hover .phoneRight-icon {
+  display: block;
+}
+.phoneRight-col .phoneRight-icon {
+  display: none;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 50px;
+  color: #499aff;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+  padding: 0 20px;
+  position: absolute;
+  right: 60px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.phoneRight-col .phoneRight-icon::after {
+  display: block;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-width: 10px 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ffffff;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  margin-top: -10px;
+  z-index: 11;
+}
+.returnRight-col {
+  background: #499aff url('./img/return.png') no-repeat center;
+  background-size: 50% 25%;
+  background-position-y: 10px;
+  line-height: 80px;
+  font-size: 12px;
+}
 @media (min-width: 1366px) {
   .logo-box {
     display: inline-block;
@@ -489,20 +673,17 @@ footer .footerRow1 {
 }
 @media screen and (max-width: 1200px) {
   footer .footerRow1 {
-    height: 100px;
+    height: 70px;
     margin: 0;
   }
   .footerRow1 .col1 {
-    line-height: 100px;
-    height: 100px;
+    line-height: 70px;
+    height: 70px;
   }
   .footerRow1 .col2>span {
-    width: 60px;
-    height: 30px;
+    width: 70px;
+    height: 24px;
     border-radius: 5px;
-  }
-  .footerRow1 .col2 .tip-box {
-    display: none;
   }
 }
 @media (min-width: 768px) {
@@ -520,8 +701,14 @@ footer .footerRow1 {
   .tab-box {
     display: none;
   }
+  .mobile-footer-tab {
+    display: flex;
+  }
   .navbar-toggle {
     display: inline-block;
+  }
+  footer {
+    bottom: 60px;
   }
 
 }
