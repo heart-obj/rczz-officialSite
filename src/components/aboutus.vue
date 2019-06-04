@@ -20,14 +20,14 @@
         </div>
         <div class="col-6 col-ms-10">
           <div>
-            <div class="aboutus-title">公司简介</div>
+            <div class="aboutus-title aboutus-title1">公司简介</div>
             <div class="aboutus-text">
               我们是由中软国际（http://www.chinasofti.com/）和华为技术有限公司（http://www.huawei.com/）的研发人员发起成立，经过8年多的不懈努力，我们已经成长为一个同时具备设计部，研发部，代办服务部，市场部的高新技术企业。业务遍及中国内地、港台、新加坡、柬埔寨、美国和英国等，服务过300多个客户，并有近10款软件成功获得投资、融资。我们始终坚持做就一定要做好的口号，以做产品的态度和经营理念，一路上获得了众多客户的好评和长期合作。作为一个创业型企业，我们深知为客户做的每一款产品，都承载着客户的梦想，甚至关乎着客户的未来。基于此，我们对产品提出了严苛的要求，我们不只是帮助客户开发产品，我们更想通过我们的前沿行业信息，尽可能的为客户提供一切与产品有关的帮助。我们希望能成为每一位客户最贴心、最放心的长期合作伙伴！<br/>
               在承接外包项目合作方面，我们始终坚持打造成为一支致力于为全球客户提供优质的一站式服务供应商。以“do it well if you do it at all !”(做就一定要做好！)为服务宗旨，始终坚持客户满意为最终目标，并以产品的心态提供优质服务助力客户成功！
             </div>
           </div>
           <div>
-            <div class="aboutus-title">团队培养</div>
+            <div class="aboutus-title aboutus-title2">团队培养</div>
             <div style="margin-top: 1vw;" v-for="(item, index) in textlist" :key="index">
               <div class="col-h" v-html="item.title"></div>
               <div class="aboutus-text" style="margin-top: 10px;" v-html="item.text"></div>
@@ -48,7 +48,7 @@
           </div>
           <div class="col-sm-6 rowCol">
             <div>
-              <div class="aboutus-title">公司简介</div>
+              <div class="aboutus-title aboutus-title1">公司简介</div>
               <div class="aboutus-text">
                 我们是由中软国际（http://www.chinasofti.com/）和华为技术有限公司（http://www.huawei.com/）的研发人员发起成立，经过8年多的不懈努力，我们已经成长为一个同时具备设计部，研发部，代办服务部，市场部的高新技术企业。业务遍及中国内地、港台、新加坡、柬埔寨、美国和英国等，服务过300多个客户，并有近10款软件成功获得投资、融资。我们始终坚持做就一定要做好的口号，以做产品的态度和经营理念，一路上获得了众多客户的好评和长期合作。作为一个创业型企业，我们深知为客户做的每一款产品，都承载着客户的梦想，甚至关乎着客户的未来。基于此，我们对产品提出了严苛的要求，我们不只是帮助客户开发产品，我们更想通过我们的前沿行业信息，尽可能的为客户提供一切与产品有关的帮助。我们希望能成为每一位客户最贴心、最放心的长期合作伙伴！<br/>
                 在承接外包项目合作方面，我们始终坚持打造成为一支致力于为全球客户提供优质的一站式服务供应商。以“do it well if you do it at all !”(做就一定要做好！)为服务宗旨，始终坚持客户满意为最终目标，并以产品的心态提供优质服务助力客户成功！
@@ -58,7 +58,7 @@
         </div>
         <div style="display:inline-block;padding: 0 15px;">
           <div>
-            <div class="aboutus-title" >团队培养</div>
+            <div class="aboutus-title aboutus-title2" >团队培养</div>
           </div>
           <div style="margin-top: 1vw;" v-for="(item, index) in textlist" :key="index">
             <div class="col-h" v-html="item.title"></div>
@@ -156,7 +156,7 @@ export default {
 }
 .aboutus-img-box {
   display: inline-block;
-  margin-top: 2vw;
+  margin-top: 8vw;
 }
 .aboutus-img {
   width: 16.8vw;
@@ -175,6 +175,16 @@ export default {
   font-weight: 600;
   position: relative;
   margin-bottom: 20px;
+  padding-top: 20px;
+}
+.aboutus-title1 {
+  background: url('./img/Companyprofile.png') no-repeat center;
+  background-position: center 0px;
+}
+.aboutus-title2 {
+  padding-top: 40px;
+  background: url('./img/TeamIntroduction.png') no-repeat center;
+  background-position: center 20px;
 }
 .aboutus-title::after {
   content: '';

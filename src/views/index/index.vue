@@ -2,6 +2,14 @@
   <div class="app-container" @scroll="scroll">
     <div>
       <header ref="uptop">
+        <swiper :options="swiperOption" style="width: 100%;height:100%;">
+          <swiper-slide style="width: 100%;height:100%;">
+            <div style="width: 100%;height:100%;" class="header-banner1"></div>
+          </swiper-slide>
+          <swiper-slide style="width: 100%;height:100%;">
+            <div style="width: 100%;height:100%;" class="header-banner2"></div>
+          </swiper-slide>
+        </swiper>
         <div class="nav-bar-box" :class="offsetTop ? 'offsetTop' : ''">
           <div class="logo-box">
             <div class="logo">极越科技</div>
@@ -9,11 +17,6 @@
           <div class="tab-box" :class="showTab ? 'showTab' : ''">
             <HeaderBox @tabClick="tabClick" :activeNav="activeNav"></HeaderBox>
           </div>
-          <!-- <div class="navbar-toggle" @click="showTabFunc">
-            <span class="glyphicon glyphicon-list"></span>
-            <span class="glyphicon glyphicon-list"></span>
-            <span class="glyphicon glyphicon-list"></span>
-          </div> -->
         </div>
       </header>
       <div class="plan-box">
@@ -33,20 +36,17 @@
           <div class="col-3 col2">
             <span class="qq" @click="showTip('qqtip')" data-toggle="modal" data-target="#exampleModal"></span>
             <div class="tip-box qqtip-box" v-show="qqtip && !ifMobile">
-              <span class="close" @click="showTip('qqtip')">关闭</span>
               <span class="tip-text">1808569213</span>
             </div>
           </div>
           <div class="col-3 col2">
             <span class="wx" @click="showTip('wxtip')"></span>
             <div class="tip-box wxtip-box" v-show="wxtip && !ifMobile">
-              <span class="close" @click="showTip('wxtip')">关闭</span>
               <span class="tip-text"></span>
             </div>
           </div>
           <div class="col-3 col2">
             <div class="tip-box phonetip-box" v-show="phonetip && !ifMobile">
-              <span class="close" @click="showTip('phonetip')">关闭</span>
               <span class="tip-text">18428088011</span>
             </div>
             <span class="cell" @click="showTip('phonetip')"></span>
@@ -85,6 +85,8 @@
   </div>
 </template>
 <script>
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import HeaderBox from '@/views/header'
 import Honor from '@/components/honorlist'
 import Business from '@/components/business'
@@ -103,7 +105,9 @@ export default {
     GoodCase,
     Aboutus,
     CooperativePartner,
-    FooterPage
+    FooterPage,
+    swiper,
+    swiperSlide
   },
   data () {
     return {
@@ -143,6 +147,20 @@ export default {
           label: '合作伙伴'
         }
       ],
+      swiperOption: {
+        delay: 1000,
+        autoplay: {
+          disableOnInteraction: false,
+          waitForTransition: true
+        },
+        speed: 1000,
+        loop: true,
+        effect: 'coverflow',
+        coverflowEffect: {
+          rotate: 0,
+          depth: 500
+        }
+      },
       showRight: false,
       scrollTop: 0,
       activeNav: 'uptop'
@@ -250,7 +268,13 @@ export default {
 }
 header {
   height: 48vw;
+}
+header .header-banner1 {
   background: url('img/banner1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+header .header-banner2 {
+  background: url('img/banner2.png') no-repeat center;
   background-size: 100% 100%;
 }
 .nav-bar-box {
@@ -379,13 +403,13 @@ footer .footerRow1 {
   background-size: 100% 100%;
 }
 .footerRow1 .col2 .tip-box {
-  width: 19.7vw;
-  height: 14.8vw;
+  width: 12vw;
+  height: 11vw;
   position: absolute;
   left: 50%;
   right: 0;
   bottom: 100px;
-  margin-left: -9.85vw;
+  margin-left: -6vw;
   background: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   text-align: center;
@@ -421,7 +445,7 @@ footer .footerRow1 {
   transition: 2s
 }
 .tip-box .tip-text {
-  width: 130px;
+  width: 100px;
   height: 30px;
   font-size: 16px;
   color: #499aff;
@@ -432,6 +456,7 @@ footer .footerRow1 {
   right: 0;
   margin: auto;
   line-height: 30px;
+  font-weight: bold;
 }
 .tip-box .tip-text::after {
   content: '';

@@ -28,7 +28,7 @@
 </template>
 <script>
 export default {
-  name: 'Business',
+  name: 'Business', // 公司业务
   data () {
     return {
       business_bg: './static/img/business_bg.png',
@@ -89,6 +89,84 @@ export default {
 }
 </script>
 <style scoped>
+@keyframes fade-in1 {
+  0% {transform: translateY(-5px)}/*初始状态 */
+  10% {transform: translateY(-4px)}/*初始状态 */
+  20% {transform: translateY(-3px)}/*初始状态 */
+  30% {transform: translateY(-2px)}/*初始状态 */
+  40% {transform: translateY(-1px)}/*初始状态 */
+  50% {transform: translateY(0px)}/*初始状态 */
+  60% {transform: translateY(1px)}/*初始状态 */
+  70% {transform: translateY(2px)}/*初始状态 */
+  80% {transform: translateY(3px)}/*过渡状态 */
+  90% {transform: translateY(4px)}/*过渡状态 */
+  100% {transform: translateY(5px)}/*结束状态 */
+}
+@-webkit-keyframes fade-in1 {/*针对webkit内核*/
+  0% {transform: translateY(-5px)}/*初始状态 */
+  10% {transform: translateY(-4px)}/*初始状态 */
+  20% {transform: translateY(-3px)}/*初始状态 */
+  30% {transform: translateY(-2px)}/*初始状态 */
+  40% {transform: translateY(-1px)}/*初始状态 */
+  50% {transform: translateY(0px)}/*初始状态 */
+  60% {transform: translateY(1px)}/*初始状态 */
+  70% {transform: translateY(2px)}/*初始状态 */
+  80% {transform: translateY(3px)}/*过渡状态 */
+  90% {transform: translateY(4px)}/*过渡状态 */
+  100% {transform: translateY(5px)}/*结束状态 */
+}
+@keyframes fade-in2 {
+  0% {transform: translateY(5px)}/*初始状态 */
+  10% {transform: translateY(4px)}/*初始状态 */
+  20% {transform: translateY(3px)}/*初始状态 */
+  30% {transform: translateY(2px)}/*初始状态 */
+  40% {transform: translateY(1px)}/*初始状态 */
+  50% {transform: translateY(0px)}/*初始状态 */
+  60% {transform: translateY(-1px)}/*初始状态 */
+  70% {transform: translateY(-2px)}/*初始状态 */
+  80% {transform: translateY(-3px)}/*过渡状态 */
+  90% {transform: translateY(-4px)}/*过渡状态 */
+  100% {transform: translateY(-5px)}/*结束状态 */
+}
+@-webkit-keyframes fade-in2 {/*针对webkit内核*/
+  0% {transform: translateY(5px)}/*初始状态 */
+  10% {transform: translateY(4px)}/*初始状态 */
+  20% {transform: translateY(3px)}/*初始状态 */
+  30% {transform: translateY(2px)}/*初始状态 */
+  40% {transform: translateY(1px)}/*初始状态 */
+  50% {transform: translateY(0px)}/*初始状态 */
+  60% {transform: translateY(-1px)}/*初始状态 */
+  70% {transform: translateY(-2px)}/*初始状态 */
+  80% {transform: translateY(-3px)}/*过渡状态 */
+  90% {transform: translateY(-4px)}/*过渡状态 */
+  100% {transform: translateY(-5px)}/*结束状态 */
+}
+@keyframes translate3d-in {
+  0% {transform: rotateY(0)}/*初始状态 */
+  10% {transform: rotateY(18deg)}/*初始状态 */
+  20% {transform: rotateY(36deg)}/*初始状态 */
+  30% {transform: rotateY(54deg)}/*初始状态 */
+  40% {transform: rotateY(72deg)}/*初始状态 */
+  50% {transform: rotateY(90deg)}/*初始状态 */
+  60% {transform: rotateY(108deg)}/*初始状态 */
+  70% {transform: rotateY(126deg)}/*过渡状态 */
+  80% {transform: rotateY(144deg)}/*过渡状态 */
+  90% {transform: rotateY(162deg)}/*过渡状态 */
+  100% {transform: rotateY(180deg)}/*结束状态 */
+}
+@-webkit-keyframes translate3d-in {/*针对webkit内核*/
+  0% {transform: rotateY(0)}/*初始状态 */
+  10% {transform: rotateY(18deg)}/*初始状态 */
+  20% {transform: rotateY(36deg)}/*初始状态 */
+  30% {transform: rotateY(54deg)}/*初始状态 */
+  40% {transform: rotateY(72deg)}/*初始状态 */
+  50% {transform: rotateY(90deg)}/*初始状态 */
+  60% {transform: rotateY(108deg)}/*初始状态 */
+  70% {transform: rotateY(126deg)}/*过渡状态 */
+  80% {transform: rotateY(144deg)}/*过渡状态 */
+  90% {transform: rotateY(162deg)}/*过渡状态 */
+  100% {transform: rotateY(180deg)}/*结束状态 */
+}
 .box1 {
   width: 100%;
   padding-bottom: 8vw;
@@ -160,6 +238,8 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5)
 }
 .middle-icon1 {
   width: 30vw;
@@ -172,6 +252,10 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+  /* animation: translate3d-in 800s infinite;
+  -webkit-animation: translate3d-in 800ms infinite;
+  animation-direction:alternate; */
+  z-index: 11;
 }
 .middle-icon2 {
   width: 50vw;
@@ -184,6 +268,9 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+  /* animation: translate3d-in 1s infinite;
+  -webkit-animation: translate3d-in 1s infinite;
+  animation-direction:alternate; */
 }
 .business-box .col-box {
   display: inline-block;
@@ -193,6 +280,16 @@ export default {
   border: 1px solid #499aff;
   border-radius: 3px;
   cursor: pointer;
+}
+.business-box .col-box:nth-child(odd) {
+  animation: fade-in1 500ms infinite;/*动画名称*/
+  -webkit-animation: fade-in1 500ms infinite;/*针对webkit内核*/
+  animation-direction:alternate;
+}
+.business-box .col-box:nth-child(even) {
+  animation: fade-in2 800ms infinite;/*动画名称*/
+  -webkit-animation: fade-in2 800ms infinite;/*针对webkit内核*/
+  animation-direction:alternate;
 }
 .business-box .col-box:hover {
   background: #499aff;

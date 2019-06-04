@@ -15,7 +15,7 @@
         <div v-for="(item, index) in caselist" :key="index">
           <div :class="index % 2 === 0 ? 'case-col' : 'case-col2'" :style="{background: 'url('+ item.bgimg +')no-repeat'}">
             <div class="case-content">
-              <div class="case-title">{{item.title}}</div>
+              <div class="case-title" :style="{color: item.btnBgColor}">{{item.title}}</div>
               <span class="case-text" v-html="item.label"></span>
               <div class="case-btn" :style="{background: item.btnBgColor}">查看更多</div>
             </div>
@@ -26,7 +26,7 @@
         <div v-for="(item, index) in caselist" :key="index" style="margin-top: 100px;">
           <div :class="index % 2 === 0 ? 'mobilecase-col' : 'mobilecase-col2'">
             <div class="mobilecase-content">
-              <div class="mobilecase-title">{{item.title}}</div>
+              <div class="mobilecase-title" :style="{color: item.btnBgColor}">{{item.title}}</div>
               <span class="mobilecase-text" v-html="item.label" :style="{'text-align': index % 2 === 0 ? 'left' : 'right'}"></span>
               <div class="mobilecase-btn" :style="{background: item.btnBgColor,float: index % 2 === 0 ? 'left' : 'right' }">查看更多</div>
             </div>

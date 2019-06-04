@@ -13,7 +13,9 @@
         美工设计、软件开发、产品运维、服务代办、技术支持等方面具有明显优势。
       </div>
       <div class="content-box">
-
+        <div class="row">
+          <div class="partner-col col-4 col-md-3" v-for="(item, i) in logolist" :key="i" :style="{'background':'url('+ item +') no-repeat center'}"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -22,11 +24,42 @@
 export default {
   name: 'CooperativePartner', // 合作伙伴
   data () {
-    return {}
+    return {
+      logolist: [
+        './static/img/logolist/logo1.png',
+        './static/img/logolist/logo2.png',
+        './static/img/logolist/logo3.png',
+        './static/img/logolist/logo4.png',
+        './static/img/logolist/logo5.png',
+        './static/img/logolist/logo6.png',
+        './static/img/logolist/logo7.png',
+        './static/img/logolist/logo8.png',
+        './static/img/logolist/logo9.png',
+        './static/img/logolist/logo10.png',
+        './static/img/logolist/logo11.png',
+        './static/img/logolist/logo12.png'
+      ]
+    }
   }
 }
 </script>
 <style scoped>
+@keyframes fade-in {
+  0% {transform: scale(1);}/*初始状态 透明度为0*/
+  20% {transform: scale(1.02);}/*过渡状态 透明度为0*/
+  40% {transform: scale(1.04);}/*过渡状态 透明度为0*/
+  60% {transform: scale(1.06);}/*过渡状态 透明度为0*/
+  80% {transform: scale(1.08);}/*过渡状态 透明度为0*/
+  100% {transform: scale(1.1);}/*结束状态 透明度为1*/
+}
+@-webkit-keyframes fade-in {/*针对webkit内核*/
+  0% {transform: scale(1);}/*初始状态 透明度为0*/
+  20% {transform: scale(1.02);}/*过渡状态 透明度为0*/
+  40% {transform: scale(1.04);}/*过渡状态 透明度为0*/
+  60% {transform: scale(1.06);}/*过渡状态 透明度为0*/
+  80% {transform: scale(1.08);}/*过渡状态 透明度为0*/
+  100% {transform: scale(1.1);}/*结束状态 透明度为1*/
+}
 .box1 {
   width: 100%;
 }
@@ -82,18 +115,33 @@ export default {
 .content-box {
   display: inline-block;
   width: 72vw;
-  height: 33.2vw;
-  background: url('./img/cooperativebg.png') no-repeat center;
-  background-size: 100% 100%;
   margin: 20px;
+}
+.content-box .partner-col {
+  height: 11.12vw;
+  background-size: 100% 100% !important;
+  cursor: pointer;
+  position: relative;
+}
+.content-box .partner-col:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  animation: fade-in;/*动画名称*/
+  animation-duration: 400ms;/*动画持续时间*/
+  -webkit-animation:fade-in 400ms;/*针对webkit内核*/
+  animation-fill-mode:forwards;
+  -webkit-animation-fill-mode:forwards;
+  z-index: 11;
 }
 @media screen and (max-width: 750px) {
   .content-box {
     display: inline-block;
     width: 90vw;
-    height: 75vw;
-    background: url('./img/cooperativebg2.png') no-repeat center;
-    background-size: 100% 100%;
+  }
+  .content-box .partner-col {
+    height: 15.12vw;
+    background-size: 100% 100% !important;
+    cursor: pointer;
+    position: relative;
   }
 }
 </style>

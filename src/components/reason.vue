@@ -33,11 +33,11 @@
           <div class="col-row">
             <div class="col-div">
               <div class="title-div">“</div>
-              <span class="text-col">我们的开发速度很快 落地效果好</span>
+              <span class="text-col">我们的开发速度很快<br/>落地效果好</span>
             </div>
             <div class="col-div col-div1">
               <span class="triangle-left"></span>
-              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">工期紧时间太赶 项目效果差</div>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">工期紧时间太赶<br/>项目效果差</div>
               <div style="width: 100%;height: 50%;" :style="{background: 'url('+ iconurl[4] +') no-repeat center','background-size': '100% 100%'}"></div>
             </div>
           </div>
@@ -46,22 +46,22 @@
           <div class="col-row">
             <div class="col-div col-div1">
               <span class="triangle-right"></span>
-              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">项目自建技术团队 成本太高</div>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">项目自建技术团队<br/>成本太高</div>
               <div style="width: 100%;height: 50%;" :style="{background: 'url('+ iconurl[1] +') no-repeat center','background-size': '100% 100%'}"></div>
             </div>
             <div class="col-div">
               <div class="title-div">“</div>
-              <span class="text-col">我们有优秀的技术团队 物美价优</span>
+              <span class="text-col">我们有优秀的技术团队<br/>物美价优</span>
             </div>
           </div>
           <div class="col-row">
             <div class="col-div">
               <div class="title-div">“</div>
-              <span class="text-col">我们的技术质量过关 让您运营无忧</span>
+              <span class="text-col">我们的技术质量过关<br/>让您运营无忧</span>
             </div>
             <div class="col-div col-div1">
               <span class="triangle-left"></span>
-              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">不懂技术管理 产品难运营</div>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">不懂技术管理<br/>产品难运营</div>
               <div style="width: 100%;height: 50%;" :style="{background: 'url('+ iconurl[4] +') no-repeat center','background-size': '100% 100%'}"></div>
             </div>
           </div>
@@ -71,11 +71,11 @@
             <div class="col-div col-div1">
               <span class="triangle-bottom"></span>
               <div style="width: 100%;height: 50%;" :style="{background: 'url('+ iconurl[2] +') no-repeat center','background-size': '100% 100%'}"></div>
-              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">服务商报价五花八门 价格悬殊太大</div>
+              <div style="width: 100%;height: 50%;padding: 15px 30px;font-size: 0.93vw;color: #999999">服务商报价五花八门<br/>价格悬殊太大</div>
             </div>
             <div class="col-div">
               <div class="title-div">“</div>
-              <span class="text-col">我们的报价清单罗列 合情合理</span>
+              <span class="text-col">我们的报价清单罗列<br/>合情合理</span>
             </div>
           </div>
         </div>
@@ -90,13 +90,13 @@
             </div>
             <div class="col-div">
               <div class="title-div">“</div>
-              <span class="text-col">{{ item.text }}</span>
+              <span class="text-col" v-html="item.text"></span>
             </div>
           </div>
           <div class="col-row" v-else>
             <div class="col-div">
               <div class="title-div">“</div>
-              <span class="text-col">{{ item.text }}</span>
+              <span class="text-col" v-html="item.text"></span>
             </div>
             <div class="col-div col-div1">
               <span class="triangle-left"></span>
@@ -152,7 +152,8 @@ export default {
       swiperOption: {
         delay: 1000,
         autoplay: {
-          disableOnInteraction: false
+          disableOnInteraction: false,
+          waitForTransition: true
         },
         speed: 1000,
         loop: true,
@@ -161,6 +162,11 @@ export default {
           el: '.swiper-pagination',
           type: 'bullets',
           clickable: true
+        },
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 500,
+          depth: 500
         }
       },
       swiperContent: [
@@ -184,27 +190,27 @@ export default {
         {
           title: '项目需求模糊缺乏专业的人梳理',
           bgimgUrl: './static/img/pic1.png',
-          text: '我们有专业的产品经理 为您梳理需求'
+          text: '我们有专业的产品经理<br/>为您梳理需求'
         },
         {
           title: '项目自建技术团队成本太高',
           bgimgUrl: './static/img/pic2.png',
-          text: '我们优秀的技术团队 物美价优'
+          text: '我们优秀的技术团队<br/>物美价优'
         },
         {
           title: '服务商报价五花八门价格悬殊太大',
           bgimgUrl: './static/img/pic3.png',
-          text: '我们的报价清单罗列 合情合理'
+          text: '我们的报价清单罗列<br/>合情合理'
         },
         {
           title: '不懂技术管理产品难运营',
           bgimgUrl: './static/img/pic4.png',
-          text: '我们的技术质量过关 让您运营无忧'
+          text: '我们的技术质量过关<br/>让您运营无忧'
         },
         {
           title: '工期时间太赶项目效果差',
           bgimgUrl: './static/img/pic5.png',
-          text: '我们的开发速度很快 落地效果好'
+          text: '我们的开发速度很快<br/>落地效果好'
         }
       ]
     }
@@ -562,12 +568,12 @@ export default {
   }
   .swiper-box {
     display: inline-block;
-    width: 100%;
+    width: 90%;
     position: relative;
   }
   .swiper-col {
     width: 80%;
-    height: auto;
+    height: 200px;
   }
   .swiper-col .swiper-text {
     display: inline-block;
