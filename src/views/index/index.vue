@@ -262,6 +262,7 @@ export default {
   width: 100% !important;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 0 !important;
   background: #ffffff;
   position: relative;
@@ -581,12 +582,13 @@ footer .footerRow1 {
 }
 .mobile-footer-tab div {
   display: inline-block;
-  font-size: 0.16vw;
+  font-size: 12px;
   padding: 0;
   line-height: 50px;
 }
 .mobile-footer-tab>div {
   position: relative;
+  font-size: 12px;
 }
 .mobile-footer-tab .activeNav {
   width: 100%;
@@ -596,6 +598,7 @@ footer .footerRow1 {
   position: absolute;
   bottom: 0;
   left: 0;
+  font-size: 14px;
 }
 .right-tip {
   width: 50px;
